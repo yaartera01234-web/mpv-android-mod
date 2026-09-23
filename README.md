@@ -105,3 +105,20 @@ inline hain. Styles mein sirf visual cheezein (background, textColor, letterSpac
 * `swipe_doesNotTap` — swipe se tap trigger nahi hota
 * `longPress_doesNotTap` — long press se tap trigger nahi hota
 * `gesturePrefsInflate` — Settings > Gestures screen
+
+
+---
+
+## v3 (2026-09-24) — double tap only
+
+Pehle single-tap zones ghalti se default ON the (user ne double tap kaha tha). Ab:
+
+| Tap | Kya hota hai |
+|---|---|
+| **Single tap** | control bar aati / chhup jati hai (stock mpv) |
+| **Double tap** | left = −10 sec, center = play/pause, right = +10 sec — **default ON** |
+
+Single tap zones ab **optional** hai: `Settings > Gestures > "Single tap zones (MX style)"`, default **OFF**.
+On karne par ek tap se hi seek/pause hota hai (bar ke liye long-press).
+
+Test: `singleTap_byDefault_doesNotSeek` — default haalat mein single tap se koi seek nahi hota.

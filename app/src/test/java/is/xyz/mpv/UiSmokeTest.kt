@@ -79,8 +79,11 @@ class UiSmokeTest {
     }
 
     @Test
-    fun singleTapZones_fire() {
+    fun singleTapZones_fire_whenEnabled() {
         tick(5000) // clock ko sane value pe le jao
+        // pehle setting ON karo (default ab OFF hai)
+        PreferenceManager.getDefaultSharedPreferences(ctx()).edit()
+            .putBoolean("gesture_single_tap_zones", true).commit()
         val rec = Rec(); val g = newGestures(rec)
 
         tap(g, 100f, 900f)                       // LEFT
@@ -97,6 +100,26 @@ class UiSmokeTest {
         tick(600)
         assertEquals("right tap = +10s", listOf(PropertyChange.SeekFixed to 1f), rec.events)
         println("SINGLE TAP ZONES OK ✅ (left -10s, center pause, right +10s)")
+    }
+
+    // ---------- default: single tap se seek NAHI hota (stock mpv behaviour) ----------
+    @Test
+    fun singleTap_byDefault_doesNotSeek() {
+        tick(5000)
+        PreferenceManager.getDefaultSharedPreferences(ctx()).edit()
+            .remove("gesture_single_tap_zones").commit()   // fresh install jaisa
+        val rec = Rec(); val g = newGestures(rec)
+
+        tap(g, 100f, 900f)   // left tap
+        tick(900)
+        tap(g, 980f, 900f)   // right tap
+        tick(900)
+        tap(g, 540f, 900f)   // center tap
+        tick(900)
+
+        assertTrue("default pe single tap se koi seek/pause nahi hona chahiye — mila: ${rec.events}",
+                   rec.events.isEmpty())
+        println("DEFAULT SINGLE TAP OK ✅ (seek nahi hota, bar ke liye jagah bachi)")
     }
 
     @Test

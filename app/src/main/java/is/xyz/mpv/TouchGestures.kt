@@ -65,7 +65,8 @@ internal class TouchGestures(private val observer: TouchGesturesObserver) {
     private var tapGestureRight : PropertyChange? = null
 
     // MX style single tap zones: tap left = -10s, center = play/pause, right = +10s
-    private var singleTapZones = true
+    // default OFF: single tap = control bar (stock mpv). Seeks double tap se hote hain.
+    private var singleTapZones = false
     // delay before a single tap is executed, so that a double tap can still win
     private var pendingTap: Runnable? = null
     private val handler = Handler(Looper.getMainLooper())
