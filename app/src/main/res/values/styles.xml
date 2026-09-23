@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="FilePickerTheme" parent="Theme.AppCompat">
+        <item name="nnf_separator_color">@color/primary</item>
+
+        <!-- Set these to match your theme -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Need to set this also to style create folder dialog -->
+        <item name="alertDialogTheme">@style/FilePickerTheme.AlertDialog</item>
+        <item name="android:textColorPrimary">@android:color/background_light</item>
+        <item name="android:textColorLink">@android:color/background_light</item>
+    </style>
+
+    <style name="FilePickerThemeSpecial" parent="FilePickerTheme">
+        <!-- used to draw behind navigation bar -->
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="FilePickerTheme.AlertDialog" parent="Theme.AppCompat.Dialog.Alert">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+    </style>
+
+    <!-- theme for player UI -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowBackground">#000000</item>
+    </style>
+
+    <!-- theme for preferences -->
+    <style name="AppTheme.Preference" parent="Theme.Material3.DayNight">
+        <item name="toolbarStyle">@style/AppTheme.Toolbar.Style</item>
+        <item name="alertDialogTheme">@style/AppTheme.Preference.AlertDialog</item>
+    </style>
+
+    <style name="AppTheme.Toolbar.Style" parent="Widget.Material3.Toolbar">
+        <item name="android:background">?colorSurface</item>
+    </style>
+
+    <style name="AppTheme.Preference.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="dialogCornerRadius">28dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="android:colorBackground">?attr/colorSurface</item>
+    </style>
+
+
+    <!-- Material3 Switches -->
+    <style name="Preference.SwitchPreferenceCompat" parent="Preference.SwitchPreferenceCompat.Material" tools:override="true">
+        <item name="android:widgetLayout">@layout/material_preferences_switch</item>
+    </style>
+
+    <!-- ==== Player control bar (MX Player style) ==== -->
+    <style name="PlayerBar">
+        <item name="android:background">@drawable/player_bar_bg</item>
+        <item name="android:elevation">6dp</item>
+    </style>
+
+    <!-- round icon button for player bars (playback, tools, top bar) -->
+    <style name="PlayerIconButton">
+        <item name="android:background">@drawable/player_icon_ripple</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:padding">11dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:minHeight">48dp</item>
+    </style>
+
+    <!-- circular play/pause button -->
+    <style name="PlayerPlayButton" parent="PlayerIconButton">
+        <item name="android:background">@drawable/player_play_bg</item>
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <!-- rounded text chip, used for decoder and speed -->
+    <style name="PlayerChip">
+        <item name="android:background">@drawable/player_chip_bg</item>
+        <item name="android:textColor">@color/tint_normal</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minWidth">58dp</item>
+        <item name="android:minHeight">36dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:stateListAnimator">@null</item>
+    </style>
+
+
+    <!-- transparent variant: no background; icons carry their own soft halo -->
+    <style name="PlayerBarTransparent">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+
+    <!-- home screen: flat purple cards -->
+    <style name="HomeCard">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">112dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/home_card_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="HomeCardText">
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/home_text</item>
+        <item name="android:textSize">10.5sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.04</item>
+        <item name="android:gravity">center</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="HomeCardIcon">
+        <item name="android:layout_width">26dp</item>
+        <item name="android:layout_height">26dp</item>
+    </style>
+</resources>

@@ -1,0 +1,11 @@
+*.iml
+.gradle/
+.kotlin/
+build/
+app/build/
+local.properties
+.idea/
+app/src/main/libs/
+*.log
+*.apk
+*.ap_

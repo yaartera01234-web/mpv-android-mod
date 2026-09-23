@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="primary" type="color">#722b72</item>
+    <item name="primary_dark" type="color">@color/primary</item>
+    <item name="accent" type="color">@color/primary</item>
+
+    <color name="tint_normal">#ffffff</color>
+    <color name="tint_disabled">#3c3c3c</color>
+
+    <color name="alpha_disabled">#85000000</color>
+    <color name="alpha24pct">#3c000000</color>
+    <color name="alpha12pct">#1e000000</color>
+
+    <color name="tint_btn_bg_nofocus">#00000000</color>
+    <color name="tint_btn_bg_focused">#807F7FB2</color>
+
+    <color name="tint_seekbar_bg">#8A8A8A</color>
+
+    <!-- Player UI: control bars, sliders and accents -->
+    <color name="player_accent">#FF3EA6FF</color>
+    <color name="player_bar_bg">#E60E0E11</color>
+    <color name="player_bar_stroke">#26FFFFFF</color>
+    <color name="player_text_secondary">#B3FFFFFF</color>
+
+    <!-- Home screen (flat purple, design #2) -->
+    <color name="home_bg">#FF150F1C</color>
+    <color name="home_card">#FF6D3C8C</color>
+    <color name="home_text">#FFFFFFFF</color>
+    <color name="home_text_dim">#FFC0B0CD</color>
+    <color name="home_logo_bg">#FF4A2A5E</color>
+    <color name="home_logo_ring">#FF5F3A78</color>
+    <color name="home_logo_play">#FFE6DCF0</color>
+    <color name="home_switch_track">#FF5E3380</color>
+    <color name="home_switch_thumb">#FFCBB6D8</color>
+
+    <!-- 12% black in LIGHT THEME -->
+    <color name="nnf_light_separator_color">#1e000000</color>
+    <!-- 12% white in BLACK THEME -->
+    <color name="nnf_dark_separator_color">#1effffff</color>
+</resources>

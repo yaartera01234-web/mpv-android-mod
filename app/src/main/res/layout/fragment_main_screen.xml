@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/home_bg"
+    android:orientation="vertical"
+    android:padding="18dp">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="104dp"
+        android:layout_height="104dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:contentDescription="@string/mpv_activity"
+        app:srcCompat="@drawable/home_logo_flat" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/docBtn"
+            style="@style/HomeCard"
+            android:layout_marginEnd="6dp">
+
+            <ImageView
+                style="@style/HomeCardIcon"
+                android:contentDescription="@string/action_open_doc_tree"
+                app:srcCompat="@drawable/ic_file_open_48dp" />
+
+            <TextView
+                style="@style/HomeCardText"
+                android:text="@string/action_open_doc_tree" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/urlBtn"
+            style="@style/HomeCard"
+            android:layout_marginStart="6dp">
+
+            <ImageView
+                style="@style/HomeCardIcon"
+                android:contentDescription="@string/action_open_url"
+                app:srcCompat="@drawable/ic_link_48dp" />
+
+            <TextView
+                style="@style/HomeCardText"
+                android:text="@string/action_open_url" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/filepickerBtn"
+            style="@style/HomeCard"
+            android:layout_marginEnd="6dp">
+
+            <ImageView
+                style="@style/HomeCardIcon"
+                android:contentDescription="@string/file_picker_old"
+                app:srcCompat="@drawable/ic_folder_white_48dp" />
+
+            <TextView
+                style="@style/HomeCardText"
+                android:text="@string/file_picker_old" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/settingsBtn"
+            style="@style/HomeCard"
+            android:layout_marginStart="6dp">
+
+            <ImageView
+                style="@style/HomeCardIcon"
+                android:contentDescription="@string/action_settings"
+                app:srcCompat="@drawable/ic_settings_black_48dp" />
+
+            <TextView
+                style="@style/HomeCardText"
+                android:text="@string/action_settings" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:letterSpacing="0.03"
+            android:text="@string/option_remember_choice"
+            android:textAllCaps="true"
+            android:textColor="@color/home_text_dim"
+            android:textSize="11sp" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            app:showText="false"
+            app:thumbTint="@color/home_switch_thumb"
+            app:trackTint="@color/home_switch_track" />
+    </LinearLayout>
+
+</LinearLayout>

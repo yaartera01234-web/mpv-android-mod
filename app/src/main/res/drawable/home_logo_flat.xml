@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="104dp"
+    android:height="104dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- flat purple disc, no gradients -->
+    <path
+        android:fillColor="@color/home_logo_bg"
+        android:pathData="M54,4 A50,50 0 1,0 54,104 A50,50 0 1,0 54,4 Z" />
+    <path
+        android:pathData="M54,4 A50,50 0 1,0 54,104 A50,50 0 1,0 54,4 Z"
+        android:strokeColor="@color/home_logo_ring"
+        android:strokeWidth="3" />
+    <!-- play triangle -->
+    <path
+        android:fillColor="@color/home_logo_play"
+        android:pathData="M44,34 L76,54 L44,74 Z" />
+</vector>
