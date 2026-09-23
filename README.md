@@ -122,3 +122,27 @@ Single tap zones ab **optional** hai: `Settings > Gestures > "Single tap zones (
 On karne par ek tap se hi seek/pause hota hai (bar ke liye long-press).
 
 Test: `singleTap_byDefault_doesNotSeek` — default haalat mein single tap se koi seek nahi hota.
+
+
+---
+
+## mpv.conf (tuned) — `extras/mpv.conf`
+
+Boss ke conf ka review (mpv docs + is repo ke build config se verified):
+
+| Setting | Verdict |
+|---|---|
+| `vo=gpu-next` | ✅ sahi (is build mein mojood) |
+| `gpu-context=android` | ✅ sahi (app khud bhi set karti hai) |
+| `gpu-api=vulkan` | ❌ **is build mein Vulkan hai hi nahi** — libplacebo `-Dvulkan=disabled` se bana hai aur libmpv.so mein libvulkan ki dependency/koi Vulkan symbol nahi. API auto rehne do. |
+| `hwdec=mediacodec-copy` | ✅ sahi (zero-copy mediacodec sirf `vo=gpu` ke saath chalta hai) |
+| `video-sync=display-resample` + `interpolation=yes` | ✅ sahi combo |
+| `tscale=sphinx` | ✅ valid (mpv ke tscale list mein) |
+| `tscale-radius=5.0` | ✅ valid (0.5–16), magar bhaari |
+| `tscale-antiring=0.8` | ✅ valid (0–1), tez hai — 0.6 bhi theek |
+| `tscale-blur=0.5` | ⚠️ mpv docs: "too low (eg. 0.5) leads to bad results" → 0.8–1.2 |
+| `tscale-window=blackman` | ✅ valid |
+| `override-display-fps=60` | ⚠️ purana naam + 120Hz screen ko 60 pe baandh deta hai. App khud asli refresh rate deti hai → hata do (ya `display-fps-override=<asli Hz>`) |
+| `video-timing-offset=0` | ℹ️ sirf `video-sync=audio` mein lagta hai — display-resample ke saath bekaar |
+
+Note: **mpv.conf app ki apni settings ko override karta hai** (libmpv se test kiya gaya: conf ki value jeeti).
