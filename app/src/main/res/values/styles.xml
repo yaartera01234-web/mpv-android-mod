@@ -99,31 +99,26 @@
     </style>
 
 
-    <!-- home screen: flat purple cards -->
+    <!-- home screen cards: sirf visual attributes style mein.
+         NOTE: layout_width / layout_height / layout_weight style mein NA rakho -
+         LayoutParams inhe style se nahi padhte aur "You must supply a layout_width
+         attribute" crash aata hai. Wo sab layout XML mein inline hain. -->
     <style name="HomeCard">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">112dp</item>
-        <item name="android:layout_weight">1</item>
         <item name="android:background">@drawable/home_card_bg</item>
         <item name="android:gravity">center</item>
         <item name="android:orientation">vertical</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
-        <item name="android:padding">8dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">8dp</item>
     </style>
 
     <style name="HomeCardText">
-        <item name="android:layout_marginTop">10dp</item>
         <item name="android:textColor">@color/home_text</item>
         <item name="android:textSize">10.5sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:gravity">center</item>
         <item name="android:maxLines">2</item>
-    </style>
-
-    <style name="HomeCardIcon">
-        <item name="android:layout_width">26dp</item>
-        <item name="android:layout_height">26dp</item>
     </style>
 </resources>

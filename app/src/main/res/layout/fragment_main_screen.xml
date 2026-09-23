@@ -28,31 +28,45 @@
         <LinearLayout
             android:id="@+id/docBtn"
             style="@style/HomeCard"
-            android:layout_marginEnd="6dp">
+            android:layout_width="0dp"
+            android:layout_height="104dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1">
 
             <ImageView
-                style="@style/HomeCardIcon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:contentDescription="@string/action_open_doc_tree"
                 app:srcCompat="@drawable/ic_file_open_48dp" />
 
             <TextView
-                style="@style/HomeCardText"
-                android:text="@string/action_open_doc_tree" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/action_open_doc_tree"
+                style="@style/HomeCardText" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/urlBtn"
             style="@style/HomeCard"
-            android:layout_marginStart="6dp">
+            android:layout_width="0dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1">
 
             <ImageView
-                style="@style/HomeCardIcon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:contentDescription="@string/action_open_url"
                 app:srcCompat="@drawable/ic_link_48dp" />
 
             <TextView
-                style="@style/HomeCardText"
-                android:text="@string/action_open_url" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/action_open_url"
+                style="@style/HomeCardText" />
         </LinearLayout>
     </LinearLayout>
 
@@ -68,31 +82,45 @@
         <LinearLayout
             android:id="@+id/filepickerBtn"
             style="@style/HomeCard"
-            android:layout_marginEnd="6dp">
+            android:layout_width="0dp"
+            android:layout_height="104dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1">
 
             <ImageView
-                style="@style/HomeCardIcon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:contentDescription="@string/file_picker_old"
                 app:srcCompat="@drawable/ic_folder_white_48dp" />
 
             <TextView
-                style="@style/HomeCardText"
-                android:text="@string/file_picker_old" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/file_picker_old"
+                style="@style/HomeCardText" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/settingsBtn"
             style="@style/HomeCard"
-            android:layout_marginStart="6dp">
+            android:layout_width="0dp"
+            android:layout_height="104dp"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1">
 
             <ImageView
-                style="@style/HomeCardIcon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
                 android:contentDescription="@string/action_settings"
                 app:srcCompat="@drawable/ic_settings_black_48dp" />
 
             <TextView
-                style="@style/HomeCardText"
-                android:text="@string/action_settings" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/action_settings"
+                style="@style/HomeCardText" />
         </LinearLayout>
     </LinearLayout>
 

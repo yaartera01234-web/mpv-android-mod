@@ -41,6 +41,12 @@ android {
         buildConfig = true
     }
 
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled = true
@@ -89,4 +95,7 @@ dependencies {
     implementation 'androidx.media:media:1.8.0'
     implementation 'androidx.preference:preference-ktx:1.2.1'
     implementation 'com.google.android.material:material:1.14.0'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.robolectric:robolectric:4.15.1'
+    testImplementation 'androidx.test:core:1.6.1'
 }

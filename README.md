@@ -74,3 +74,34 @@ $ANDROID_HOME/build-tools/36.0.0/zipalign -p -f 4 app-default-arm64-v8a-debug.ap
 $ANDROID_HOME/build-tools/36.0.0/apksigner sign --ks debug.keystore --ks-pass pass:android \
     --key-pass pass:android --ks-key-alias androiddebugkey --out final.apk aligned.apk
 ```
+
+
+---
+
+## v2 fix (2026-09-24) — crash ka asal masla
+
+Pehla build phone pe crash ho jata tha:
+
+```
+InflateException: Binary XML file line #40 in layout/fragment_main_screen:
+You must supply a layout_width attribute.
+```
+
+Wajah: `fragment_main_screen.xml` mein TextViews ka `layout_width`/`layout_height`
+sirf `HomeCardText` style se aa raha tha — Android **LayoutParams in attributes ko
+style se nahi padhta**, sirf element ke upar likhe hue attributes padhta hai.
+Isi liye home screen inflate hote hi app band ho jati thi.
+
+**Fix:** ab har view ke `layout_width` / `layout_height` / `layout_weight` layout XML mein
+inline hain. Styles mein sirf visual cheezein (background, textColor, letterSpacing...) hain.
+
+### Test (Robolectric) — 6/6 PASS
+```bash
+./gradlew :app:testDefaultDebugUnitTest --tests "*UiSmokeTest*"
+```
+* `homeScreenInflates` — home screen inflate (yehi crash tha)
+* `singleTapZones_fire` — left −10s / center play-pause / right +10s
+* `doubleTap_firesOnce` — double tap sirf ek baar chalta hai
+* `swipe_doesNotTap` — swipe se tap trigger nahi hota
+* `longPress_doesNotTap` — long press se tap trigger nahi hota
+* `gesturePrefsInflate` — Settings > Gestures screen
