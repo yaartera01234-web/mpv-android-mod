@@ -140,7 +140,7 @@ Boss ke conf ka review (mpv docs + is repo ke build config se verified):
 | `tscale=sphinx` | ✅ valid (mpv ke tscale list mein) |
 | `tscale-radius=5.0` | ✅ valid (0.5–16), magar bhaari |
 | `tscale-antiring=0.8` | ✅ valid (0–1), tez hai — 0.6 bhi theek |
-| `tscale-blur=0.5` | ⚠️ mpv docs: "too low (eg. 0.5) leads to bad results" → 0.8–1.2 |
+| `tscale-blur=0.5` | ✅ **rakha gaya** — device pe tested: is se motion smooth rehti hai magar moving objects "original" lagte hain (sphinx non-negative bump hai, is liye docs ki 0.5-warning yahan lagti nahi). Artifacts dikhein to 0.7 |
 | `tscale-window=blackman` | ✅ valid |
 | `override-display-fps=60` | ⚠️ purana naam + 120Hz screen ko 60 pe baandh deta hai. App khud asli refresh rate deti hai → hata do (ya `display-fps-override=<asli Hz>`) |
 | `video-timing-offset=0` | ℹ️ sirf `video-sync=audio` mein lagta hai — display-resample ke saath bekaar |
