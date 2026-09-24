@@ -146,3 +146,30 @@ Boss ke conf ka review (mpv docs + is repo ke build config se verified):
 | `video-timing-offset=0` | ℹ️ sirf `video-sync=audio` mein lagta hai — display-resample ke saath bekaar |
 
 Note: **mpv.conf app ki apni settings ko override karta hai** (libmpv se test kiya gaya: conf ki value jeeti).
+
+
+---
+
+## `extras/mpv_60fps.conf` — smooth / "60fps" best settings (tested)
+
+Net ki community best practice (r/mpv, Doom9, mpv wiki) + local test ka nichor:
+
+**Core:** `video-sync=display-resample` + `interpolation-preserve=yes`
+**tscale:** `sphinx` + `radius=5.0` + `blur=0.5` + `antiring=0.8` + `window=blackman` (Boss-tested)
+**Smart part:** auto-profile jo interpolation sirf tab ON karta hai jab video fps display Hz ka saaf multiple na ho.
+
+Verified matrix (mpv pe live chala ke dekha):
+
+| Display | 24fps | 25fps | 60fps |
+|---|---|---|---|
+| 120 Hz | interp OFF (5:1 clean) | interp ON (4.8) | interp OFF (2:1 clean) |
+| 60 Hz | interp ON (2.5) | interp ON (2.4) | interp OFF (1:1 clean) |
+
+Yaani **60fps content pe interpolation kabhi nahi chalti** — sach mein zaroorat hi nahi hoti (1:1 ya 2:1 perfect). Wo jo mool rule hai wo `interpolation-threshold` (default 0.01) hai: `abs(disphz/vfps - 1) < 0.01` → band; docs ka literal example: "60.00 FPS video + 59.94 Hz display = interpolation never activated".
+
+Community alternatives (file mein commented blocks): `oversample` (sab se sharp, mpv default, "smoothmotion"), `box + window=sphinx + radius=1.0 + clamp=0.0` (mashhoor Reddit combo), `sphinx + radius=1.0 + blur=0.6991556596428412 + clamp=0.0`, `mitchell` (smoother).
+
+Notes:
+- **Profile section file ke aakhir mein ho** — profile ke baad likhe options usi profile ka hissa ban jate hain (ye galti pakdi gayi thi).
+- `hwdec-extra-frames` ki zaroorat nahi jab `hwdec=mediacodec-copy` ho.
+- mpv real motion interpolation nahi karta (sirf blend) — naye frames chahiye to SVP/VapourSynth/RIFE.
