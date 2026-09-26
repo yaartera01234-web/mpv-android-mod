@@ -109,6 +109,14 @@ class GalleryActivity : AppCompatActivity() {
             if (tab == TAB_VIDEOS && openFolder == null) setLayoutManager()
         }
 
+        findViewById<View>(R.id.btnHome).setOnClickListener {
+            // purana 4-card home (tools) — gallery ab app ka home hai
+            try {
+                startActivity(Intent(this, MainActivity::class.java))
+            } catch (t: Throwable) {
+            }
+        }
+
         findViewById<View>(R.id.btnBrowse).setOnClickListener {
             try {
                 startActivity(Intent(this, FilePickerActivity::class.java).apply {

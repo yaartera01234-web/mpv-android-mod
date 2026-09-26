@@ -216,6 +216,12 @@
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@style/FilePickerTheme"
+            android:exported="false" />
+
+        <activity
+            android:name=".GalleryActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/FilePickerTheme"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -224,12 +230,6 @@
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".GalleryActivity"
-            android:configChanges="orientation|screenSize"
-            android:theme="@style/FilePickerTheme"
-            android:exported="false" />
 
         <activity
             android:name=".FilePickerActivity"

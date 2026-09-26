@@ -48,6 +48,12 @@
                 android:text="▦" />
 
             <TextView
+                android:id="@+id/btnHome"
+                style="@style/GalleryTopButton"
+                android:contentDescription="@string/gallery_old_home"
+                android:text="☰" />
+
+            <TextView
                 android:id="@+id/btnBrowse"
                 style="@style/GalleryTopButton"
                 android:contentDescription="@string/gallery_perm_browse"

@@ -259,4 +259,5 @@
     <string name="gallery_recent_status">%1$d recent items</string>
     <string name="gallery_folder_status">\uD83D\uDCC1 %1$s \u2014 %2$d files</string>
     <string name="gallery_play_failed">Ye file play nahi ho saki</string>
+    <string name="gallery_old_home">Purana home (tools)</string>
 </resources>
