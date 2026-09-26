@@ -51,31 +51,34 @@ class TileAdapter(private val onClick: (GItem) -> Unit) : RecyclerView.Adapter<T
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(h: VH, position: Int) {
-        val it = items[position]
-        h.name.text = it.name
-        h.meta.text = metaLine(it)
-        h.dur.text = GalleryData.fmtDuration(it.durationMs)
+        val item = items[position]
+        h.name.text = item.name
+        h.meta.text = metaLine(item)
+        h.dur.text = GalleryData.fmtDuration(item.durationMs)
         h.dur.visibility = if (h.dur.text.isNullOrEmpty()) View.GONE else View.VISIBLE
-        val res = if (it.isVideo) GalleryData.fmtRes(it.width, it.height) else ""
+        val res = if (item.isVideo) GalleryData.fmtRes(item.width, item.height) else ""
         h.res.text = res
         h.res.visibility = if (res.isEmpty()) View.GONE else View.VISIBLE
 
-        h.itemView.tag = it.uri
+        h.itemView.tag = item.uri
         h.img.setImageDrawable(null)
         h.img.visibility = View.INVISIBLE
         h.icon.visibility = View.VISIBLE
-        h.icon.text = if (it.isVideo) "\uD83C\uDFAC" else "\uD83C\uDFB5"
+        h.icon.text = if (item.isVideo) "\uD83C\uDFAC" else "\uD83C\uDFB5"
 
         val ctx = h.itemView.context
-        GalleryThumbs.load(ctx, it, thumbPx(ctx)) { bmp ->
-            if (h.itemView.tag == it.uri && bmp != null) {
+        GalleryThumbs.load(ctx, item, thumbPx(ctx)) { bmp ->
+            if (h.itemView.tag == item.uri && bmp != null) {
                 h.img.setImageBitmap(bmp)
                 h.img.visibility = View.VISIBLE
                 h.icon.visibility = View.GONE
             }
         }
 
-        h.itemView.setOnClickListener { onClick(it) }
+        h.itemView.setOnClickListener { v ->
+            val pos = h.bindingAdapterPosition
+            if (pos in items.indices) onClick(items[pos])
+        }
     }
 }
 
@@ -104,29 +107,32 @@ class RowAdapter(private val onClick: (GItem) -> Unit) : RecyclerView.Adapter<Ro
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(h: VH, position: Int) {
-        val it = items[position]
-        h.name.text = it.name
-        val subLine = if (it.isVideo) metaLine(it) else it.sub
+        val item = items[position]
+        h.name.text = item.name
+        val subLine = if (item.isVideo) metaLine(item) else item.sub
         h.sub.text = subLine
         h.sub.visibility = if (subLine.isEmpty()) View.GONE else View.VISIBLE
         h.action.text = "\u25B6"
 
-        h.itemView.tag = it.uri
+        h.itemView.tag = item.uri
         h.img.setImageDrawable(null)
         h.img.visibility = View.INVISIBLE
         h.icon.visibility = View.VISIBLE
-        h.icon.text = if (it.isVideo) "\uD83C\uDFAC" else "\uD83C\uDFB5"
+        h.icon.text = if (item.isVideo) "\uD83C\uDFAC" else "\uD83C\uDFB5"
 
         val ctx = h.itemView.context
-        GalleryThumbs.load(ctx, it, thumbPx(ctx)) { bmp ->
-            if (h.itemView.tag == it.uri && bmp != null) {
+        GalleryThumbs.load(ctx, item, thumbPx(ctx)) { bmp ->
+            if (h.itemView.tag == item.uri && bmp != null) {
                 h.img.setImageBitmap(bmp)
                 h.img.visibility = View.VISIBLE
                 h.icon.visibility = View.GONE
             }
         }
 
-        h.itemView.setOnClickListener { onClick(it) }
+        h.itemView.setOnClickListener { v ->
+            val pos = h.bindingAdapterPosition
+            if (pos in items.indices) onClick(items[pos])
+        }
     }
 }
 
@@ -157,6 +163,9 @@ class FolderAdapter(private val onClick: (GFolder) -> Unit) : RecyclerView.Adapt
         h.name.text = f.name
         h.sub.text = f.count.toString() + " files"
         h.action.text = "\u203A"
-        h.itemView.setOnClickListener { onClick(f) }
+        h.itemView.setOnClickListener { v ->
+            val pos = h.bindingAdapterPosition
+            if (pos in items.indices) onClick(items[pos])
+        }
     }
 }

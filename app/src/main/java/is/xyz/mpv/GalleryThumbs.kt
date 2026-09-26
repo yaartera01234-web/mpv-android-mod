@@ -23,7 +23,7 @@ object GalleryThumbs {
     private val pool = Executors.newFixedThreadPool(4)
     private val main = Handler(Looper.getMainLooper())
 
-    private val cache = LruCache<String, Bitmap>(
+    private val cache = object : LruCache<String, Bitmap>(
         (Runtime.getRuntime().maxMemory() / 1024 / 8).toInt()
     ) {
         override fun sizeOf(key: String, value: Bitmap): Int = value.byteCount / 1024
