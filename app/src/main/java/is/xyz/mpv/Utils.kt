@@ -90,6 +90,10 @@ internal object Utils {
         }
     }
 
+    /** prefs file for one-time defaults (mpv.conf etc.) */
+    private const val PREFS_DEFAULTS = "mpv-defaults"
+    private const val KEY_CONF_WRITTEN = "default_mpv_conf_written"
+
     fun copyAssets(context: Context) {
         val assetManager = context.assets
         val files = arrayOf("cacert.pem")
@@ -99,18 +103,41 @@ internal object Utils {
             copyAssetFile(assetManager, name, File("$configDir/$name"))
         }
 
-        /* Default mpv.conf: sirf pehli dafa likhi jati hai. User apni file
-           (Settings -> Advanced) badal le to dobara overwrite NAHI hoti. */
-        val userConf = File("$configDir/mpv.conf")
-        if (!userConf.exists()) {
-            copyAssetFile(assetManager, "mpv.conf", userConf)
-            Log.v(TAG, "wrote default mpv.conf")
-        }
+        writeDefaultConf(context, File("$configDir/mpv.conf"))
 
         // we used to ship this, but it's no longer needed
         File("$configDir/subfont.ttf").delete()
 
         writeFontsConf(context, File("$configDir/fonts.conf"))
+    }
+
+    /**
+     * Default mpv.conf ship karte hain (gpu-next + interpolation profile).
+     * Sirf pehli dafa likhi jati hai — uske baad user ki apni file kabhi
+     * overwrite nahi hoti (Settings -> Advanced -> Edit mpv.conf).
+     */
+    private fun writeDefaultConf(context: Context, conf: File) {
+        val prefs = context.getSharedPreferences(PREFS_DEFAULTS, Context.MODE_PRIVATE)
+        if (prefs.getBoolean(KEY_CONF_WRITTEN, false))
+            return
+
+        val empty = try {
+            !conf.exists() || conf.readText().isBlank()
+        } catch (e: IOException) {
+            Log.w(TAG, "could not read mpv.conf", e)
+            true
+        }
+
+        if (!empty) {
+            // user ki apni settings hain -> kabhi na chhero
+            prefs.edit().putBoolean(KEY_CONF_WRITTEN, true).apply()
+            return
+        }
+
+        if (copyAssetFile(context.assets, "mpv.conf", conf)) {
+            Log.v(TAG, "wrote default mpv.conf")
+            prefs.edit().putBoolean(KEY_CONF_WRITTEN, true).apply()
+        }
     }
 
     fun findRealPath(fd: Int): String? {

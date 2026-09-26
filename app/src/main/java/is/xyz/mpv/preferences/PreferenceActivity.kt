@@ -16,6 +16,7 @@ import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceManager
 import com.google.android.material.color.DynamicColors
 import `is`.xyz.mpv.R
+import `is`.xyz.mpv.Utils
 
 class PreferenceActivity : AppCompatActivity(),
     PreferenceFragmentCompat.OnPreferenceStartFragmentCallback,
@@ -24,6 +25,10 @@ class PreferenceActivity : AppCompatActivity(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // mpv.conf / cacert / fonts.conf yahan bhi ensure karo, taake
+        // "Edit mpv.conf" kholne se pehle default conf mojood ho
+        Utils.copyAssets(this)
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this)
         preferences.registerOnSharedPreferenceChangeListener(this)
