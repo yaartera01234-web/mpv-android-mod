@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/home_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- top bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/gallery_title"
+                android:textColor="@color/home_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/btnSearch"
+                style="@style/GalleryTopButton"
+                android:contentDescription="@string/gallery_search_hint"
+                android:text="🔍" />
+
+            <TextView
+                android:id="@+id/btnSort"
+                style="@style/GalleryTopButton"
+                android:contentDescription="@string/gallery_sort"
+                android:text="⇅" />
+
+            <TextView
+                android:id="@+id/btnGrid"
+                style="@style/GalleryTopButton"
+                android:contentDescription="@string/gallery_columns_btn"
+                android:text="▦" />
+
+            <TextView
+                android:id="@+id/btnBrowse"
+                style="@style/GalleryTopButton"
+                android:contentDescription="@string/gallery_perm_browse"
+                android:text="📁" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/searchBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="14dp"
+            android:background="@drawable/gallery_search_bg"
+            android:hint="@string/gallery_search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingStart="12dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="8dp"
+            android:textColor="@color/home_text"
+            android:textColorHint="@color/home_text_dim"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="14dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="14dp"
+            android:paddingBottom="2dp">
+
+            <TextView
+                android:id="@+id/tabVideos"
+                style="@style/GalleryChip"
+                android:text="@string/gallery_tab_videos" />
+
+            <TextView
+                android:id="@+id/tabMusic"
+                style="@style/GalleryChip"
+                android:text="@string/gallery_tab_music" />
+
+            <TextView
+                android:id="@+id/tabFolders"
+                style="@style/GalleryChip"
+                android:text="@string/gallery_tab_folders" />
+
+            <TextView
+                android:id="@+id/tabRecent"
+                style="@style/GalleryChip"
+                android:text="@string/gallery_tab_recent" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/statusText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingTop="6dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/home_text_dim"
+            android:textSize="11sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/gridList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:clipToPadding="false"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="12dp" />
+    </LinearLayout>
+
+    <!-- pehli dafa permission ka box -->
+    <LinearLayout
+        android:id="@+id/permBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/home_bg"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="28dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎬"
+            android:textSize="34sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/gallery_perm_title"
+            android:textColor="@color/home_text"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/gallery_perm_body"
+            android:textColor="@color/home_text_dim"
+            android:textSize="12.5sp" />
+
+        <Button
+            android:id="@+id/permAllow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/gallery_primary_btn"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:text="@string/gallery_perm_allow"
+            android:textColor="@color/home_text"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/permBrowse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/gallery_perm_browse"
+            android:textColor="@color/home_text_dim" />
+    </LinearLayout>
+</FrameLayout>

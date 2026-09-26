@@ -230,4 +230,33 @@
     <string name="ui_pip_label">Picture-in-picture</string>
     <string name="ui_menu_label">Menu</string>
 
+
+    <!-- ===== Gallery (MX-style media browser) ===== -->
+    <string name="action_open_gallery">Gallery</string>
+    <string name="gallery_title">Gallery</string>
+    <string name="gallery_tab_videos">Videos</string>
+    <string name="gallery_tab_music">Music</string>
+    <string name="gallery_tab_folders">Folders</string>
+    <string name="gallery_tab_recent">Recent</string>
+    <string name="gallery_search_hint">Naam se search karo\u2026</string>
+    <string name="gallery_sort">Sort</string>
+    <string name="gallery_columns_btn">Grid columns</string>
+    <string name="gallery_columns">Grid: %1$d columns</string>
+    <string name="gallery_sort_date">Date (naya pehle)</string>
+    <string name="gallery_sort_name">Naam (A-Z)</string>
+    <string name="gallery_sort_duration">Duration (lambe pehle)</string>
+    <string name="gallery_sort_size">Size (bare pehle)</string>
+    <string name="gallery_loading">Load ho raha hai\u2026</string>
+    <string name="gallery_empty">Yahan kuch nahi mila</string>
+    <string name="gallery_no_permission">Permission ke baghair list nahi ban sakti</string>
+    <string name="gallery_perm_title">Media dikhane ki ijazat do</string>
+    <string name="gallery_perm_body">Videos aur music ki list banane ke liye ek dafa permission chahiye (Android ka MediaStore). Sirf padhne ki ijazat \u2014 kuch upload ya edit nahi hota.</string>
+    <string name="gallery_perm_allow">Allow</string>
+    <string name="gallery_perm_browse">File browser</string>
+    <string name="gallery_videos_status">%1$d videos</string>
+    <string name="gallery_music_status">%1$d songs</string>
+    <string name="gallery_folders_status">%1$d folders</string>
+    <string name="gallery_recent_status">%1$d recent items</string>
+    <string name="gallery_folder_status">\uD83D\uDCC1 %1$s \u2014 %2$d files</string>
+    <string name="gallery_play_failed">Ye file play nahi ho saki</string>
 </resources>

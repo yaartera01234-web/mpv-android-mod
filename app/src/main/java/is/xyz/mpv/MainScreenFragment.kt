@@ -71,6 +71,10 @@ class MainScreenFragment : Fragment(R.layout.fragment_main_screen) {
 
         Utils.handleInsetsAsPadding(binding.root)
 
+        binding.galleryBtn.setOnClickListener {
+            // MX jaisa gallery (Videos / Music / Folders / Recent)
+            startActivity(Intent(context, GalleryActivity::class.java))
+        }
         binding.docBtn.setOnClickListener {
             try {
                 documentTreeOpener.launch(null)
