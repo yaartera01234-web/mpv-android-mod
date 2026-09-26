@@ -99,6 +99,14 @@ internal object Utils {
             copyAssetFile(assetManager, name, File("$configDir/$name"))
         }
 
+        /* Default mpv.conf: sirf pehli dafa likhi jati hai. User apni file
+           (Settings -> Advanced) badal le to dobara overwrite NAHI hoti. */
+        val userConf = File("$configDir/mpv.conf")
+        if (!userConf.exists()) {
+            copyAssetFile(assetManager, "mpv.conf", userConf)
+            Log.v(TAG, "wrote default mpv.conf")
+        }
+
         // we used to ship this, but it's no longer needed
         File("$configDir/subfont.ttf").delete()
 

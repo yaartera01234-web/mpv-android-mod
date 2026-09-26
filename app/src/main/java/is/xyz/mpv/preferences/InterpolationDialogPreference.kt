@@ -57,7 +57,7 @@ class InterpolationDialogPreference(
         sp = binding.videoSync as MaterialAutoCompleteTextView
 
         // populate switch
-        sw.isChecked = sharedPreferences?.getBoolean("${key}_interpolation", false) ?: false
+        sw.isChecked = sharedPreferences?.getBoolean("${key}_interpolation", true) ?: true
 
         // populate spinner
         val s = sharedPreferences?.getString("${key}_sync", entryDefault) ?: entryDefault

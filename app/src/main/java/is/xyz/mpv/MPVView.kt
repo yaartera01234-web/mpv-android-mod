@@ -83,7 +83,8 @@ internal class MPVView(context: Context, attrs: AttributeSet) : BaseMPVView(cont
         val vidsync = sharedPreferences.getString("video_sync", resources.getString(R.string.pref_video_interpolation_sync_default))
         MPVLib.setOptionString("video-sync", vidsync!!)
 
-        if (sharedPreferences.getBoolean("video_interpolation", false))
+        // default: ON (config ka hissa — display-resample + interpolation)
+        if (sharedPreferences.getBoolean("video_interpolation", true))
             MPVLib.setOptionString("interpolation", "yes")
 
         if (sharedPreferences.getBoolean("gpudebug", false))

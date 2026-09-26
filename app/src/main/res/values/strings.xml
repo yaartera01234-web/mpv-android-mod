@@ -3,7 +3,7 @@
      them to be changed based on the locale and options. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <!-- Simple strings. -->
-    <string name="mpv_activity">mpv</string>
+    <string name="mpv_activity">MPV</string>
     <string name="label_share_intent">Play in mpv</string>
     <string name="title_activity_settings">Settings</string>
     <string name="dialog_ok">OK</string>
@@ -176,7 +176,7 @@
 
     <string name="pref_video_interpolation_title">Interpolation</string>
     <string name="pref_video_interpolation_message">Reduce judder caused by mismatched video FPS and display refresh rate.</string>
-    <string name="pref_video_interpolation_sync_default" translatable="false">audio</string>
+    <string name="pref_video_interpolation_sync_default" translatable="false">display-resample</string>
 
     <string name="pref_video_tscale_title">Temporal interpolation filter</string>
     <string name="pref_video_tscale_summary">Select the filter used for interpolating the temporal axis (frames).</string>
