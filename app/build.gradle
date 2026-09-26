@@ -8,11 +8,13 @@ android {
     compileSdk = 36
 
     defaultConfig {
+        // alag package: Play Store wale mpv (is.xyz.mpv) se kabhi collide nahi karega
+        applicationId "app.yaartera.mpv"
         minSdkVersion 23
         targetSdk 36
 
-        versionCode 50
-        versionName "2026-09-26-gallery-home"
+        versionCode 51
+        versionName "2026-09-26-neon-play"
 
         vectorDrawables.useSupportLibrary = true
 

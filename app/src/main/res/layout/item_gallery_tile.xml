@@ -7,17 +7,18 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="vertical"
-    android:padding="4dp">
+    android:padding="5dp">
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="96dp">
+        android:layout_height="96dp"
+        android:background="@drawable/gallery_thumb_bg"
+        android:clipToOutline="true">
 
         <ImageView
             android:id="@+id/gThumb"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#1AFFFFFF"
             android:contentDescription="@string/gallery_title"
             android:scaleType="centerCrop" />
 
@@ -28,50 +29,73 @@
             android:layout_gravity="center"
             android:textSize="24sp" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/gallery_scrim" />
+
         <TextView
             android:id="@+id/gRes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="top|start"
-            android:background="#66000000"
-            android:paddingStart="4dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="1dp"
-            android:textColor="#FFC9E9FF"
-            android:textSize="9sp" />
+            android:layout_margin="5dp"
+            android:background="@drawable/gallery_chip_bg"
+            android:paddingStart="6dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="2dp"
+            android:textColor="#FFC9F3FF"
+            android:textSize="9sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/gDur"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
-            android:background="#66000000"
-            android:paddingStart="4dp"
-            android:paddingTop="1dp"
-            android:paddingEnd="4dp"
-            android:paddingBottom="1dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/gallery_chip_bg"
+            android:paddingStart="6dp"
+            android:paddingTop="2dp"
+            android:paddingEnd="6dp"
+            android:paddingBottom="2dp"
             android:textColor="@color/home_text"
-            android:textSize="9sp" />
+            android:textSize="9sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/gBar"
+            android:layout_width="24dp"
+            android:layout_height="3dp"
+            android:layout_gravity="bottom|start"
+            android:background="@drawable/gallery_accent_bar" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/gName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="6dp"
         android:ellipsize="end"
         android:maxLines="1"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
         android:textColor="@color/home_text"
-        android:textSize="11sp" />
+        android:textSize="11sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/gMeta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="2dp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:textColor="@color/home_text_dim"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:paddingBottom="3dp"
+        android:textColor="@color/g_text_dim2"
         android:textSize="9.5sp" />
 </LinearLayout>

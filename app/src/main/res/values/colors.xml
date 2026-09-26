@@ -37,4 +37,17 @@
     <color name="nnf_light_separator_color">#1e000000</color>
     <!-- 12% white in BLACK THEME -->
     <color name="nnf_dark_separator_color">#1effffff</color>
+
+    <!-- ===== Gallery (aesthetic v2) ===== -->
+    <color name="g_surface">#FF15151F</color>
+    <color name="g_surface2">#FF12121A</color>
+    <color name="g_stroke">#FF23232F</color>
+    <color name="g_stroke2">#FF26263A</color>
+    <color name="g_btn_bg">#FF171720</color>
+    <color name="g_chip_bg">#A6000000</color>
+    <color name="g_tab_off">#FF14141D</color>
+    <color name="g_accent1">#FFC084FC</color>
+    <color name="g_accent2">#FF8B5CF6</color>
+    <color name="g_accent3">#FF22D3EE</color>
+    <color name="g_text_dim2">#FF9D9DB8</color>
 </resources>

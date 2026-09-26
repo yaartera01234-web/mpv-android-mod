@@ -197,9 +197,9 @@ class GalleryActivity : AppCompatActivity() {
         openFolder = null
         for ((i, v) in tabViews.withIndex()) {
             val on = i == index
-            v.setBackgroundResource(if (on) R.drawable.gallery_chip_on else R.drawable.gallery_chip_off)
+            v.setBackgroundResource(if (on) R.drawable.gallery_tab_on else R.drawable.gallery_tab_off)
             v.setTextColor(
-                ContextCompat.getColor(this, if (on) R.color.home_text else R.color.home_text_dim)
+                ContextCompat.getColor(this, if (on) R.color.home_bg else R.color.home_text_dim)
             )
         }
         setLayoutManager()
